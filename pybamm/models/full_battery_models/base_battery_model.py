@@ -605,7 +605,7 @@ class BatteryModelOptions(pybamm.FuzzyDict):
         if options["particle phases"] not in ["1", ("1", "1")]:
             if not (
                 options["surface form"] != "false"
-                and options["particle size"] == "single"
+                # and options["particle size"] == "single"
                 and options["particle"] == "Fickian diffusion"
                 and options["particle mechanics"] == "none"
                 and options["loss of active material"] == "none"
