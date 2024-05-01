@@ -322,7 +322,7 @@ def size_average(
     # If symbol doesn't have a domain, or doesn't have "negative particle size"
     #  or "positive particle size" as a domain, it's average value is itself
     if symbol.domain == [] or not any(
-        domain in [["negative particle size"], ["positive particle size"]]
+        domain in [["negative particle size"], ["positive particle size"], ["negative primary particle size"], ["positive primary particle size"], ["negative secondary particle size"], ["positive secondary particle size"]]
         for domain in list(symbol.domains.values())
     ):
         return symbol
@@ -348,8 +348,16 @@ def size_average(
             )
             if ["negative particle size"] in symbol.domains.values():
                 f_a_dist = geo.n.prim.f_a_dist(R)
+            elif ["negative primary particle size"] in symbol.domains.values():
+                f_a_dist = geo.n.prim.f_a_dist(R)
+            elif ["negative secondary particle size"] in symbol.domains.values():
+                f_a_dist = geo.n.sec.f_a_dist(R)
             elif ["positive particle size"] in symbol.domains.values():
                 f_a_dist = geo.p.prim.f_a_dist(R)
+            elif ["positive primary particle size"] in symbol.domains.values():
+                f_a_dist = geo.p.prim.f_a_dist(R)
+            elif ["positive secondary particle size"] in symbol.domains.values():
+                f_a_dist = geo.p.sec.f_a_dist(R)
         return SizeAverage(symbol, f_a_dist)
 
 
