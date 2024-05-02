@@ -93,8 +93,8 @@ class BaseInterface(pybamm.BaseSubModel):
                     # "current collector"
                     c_e = pybamm.PrimaryBroadcast(c_e, ["current collector"])
                 # broadcast c_e, T onto "particle size"
-                c_e = pybamm.PrimaryBroadcast(c_e, [f"{domain} particle size"])
-                T = pybamm.PrimaryBroadcast(T, [f"{domain} particle size"])
+                c_e = pybamm.PrimaryBroadcast(c_e, [f"{domain} {phase_name}particle size"])
+                T = pybamm.PrimaryBroadcast(T, [f"{domain} {phase_name}particle size"])
 
             else:
                 c_s_surf = variables[

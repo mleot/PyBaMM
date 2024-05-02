@@ -76,7 +76,7 @@ class BaseKinetics(BaseInterface):
             self.reaction == "lithium-ion main"
             and domain_options["particle size"] == "distribution"
         ):
-            delta_phi = pybamm.PrimaryBroadcast(delta_phi, [f"{domain} particle size"])
+            delta_phi = pybamm.PrimaryBroadcast(delta_phi, [f"{domain} {phase_name}particle size"])
 
         # Get exchange-current density. For MSMR models we calculate the exchange
         # current density for each reaction, then sum these to give a total exchange

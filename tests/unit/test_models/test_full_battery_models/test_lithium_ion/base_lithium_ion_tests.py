@@ -398,6 +398,25 @@ class BaseUnitTestLithiumIon:
         options = {"particle phases": ("1", "2")}
         self.check_well_posedness(options)
 
+    def test_well_posed_particle_phases_psd(self):
+        options = {
+            "particle phases": "2",
+            "particle size": "distribution"
+        }
+        self.check_well_posedness(options)
+
+        # options = {
+        #     "particle phases": ("2", "1"),
+        #     "particle size": "distribution"
+        # }
+        # self.check_well_posedness(options)
+
+        # options = {
+        #     "particle phases": ("1", "2"),
+        #     "particle size": "distribution"
+        # }
+        # self.check_well_posedness(options)
+
     def test_well_posed_particle_phases_sei(self):
         options = {"particle phases": "2", "SEI": "ec reaction limited"}
         self.check_well_posedness(options)

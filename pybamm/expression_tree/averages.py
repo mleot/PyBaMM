@@ -337,7 +337,7 @@ def size_average(
     # take the orphan
     elif isinstance(symbol, pybamm.SecondaryBroadcast) and symbol.domains[
         "secondary"
-    ] in [["negative particle size"], ["positive particle size"]]:
+    ] in [["negative particle size"], ["positive particle size"], ["negative primary particle size"], ["positive primary particle size"], ["negative secondary particle size"], ["positive secondary particle size"]]:
         return symbol.orphans[0]
     # Otherwise, define a SizeAverage
     else:
